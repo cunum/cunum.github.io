@@ -1,0 +1,15 @@
+<html>
+<head>
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+  if (id) {
+    fetch("https://g.api.mega.co.nz/cs", { method: "POST", body: JSON.stringify([{"a":"g", "g":"1", "p": id}]) })
+      .then(response => response.json())
+      .then(data => window.location.href = data[0].g);
+  }
+</script>
+</body>
+</html>
